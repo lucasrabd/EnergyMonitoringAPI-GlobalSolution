@@ -4,18 +4,36 @@
 
 `EnergyMonitoringAPI` é uma API desenvolvida com .NET 8.0 para o monitoramento e gerenciamento de produção de energia sustentável. A API oferece operações CRUD (Create, Read, Update, Delete) para registros de produção de energia, com armazenamento e consulta utilizando um banco de dados Oracle.
 
+---
+
+## Integrantes
+
+- **Bruno Ramos da Costa** (RM551942)  
+- **Guilherme Faria de Aguiar** (RM551374)  
+- **Henrique Roncon Pereira** (RM99161)  
+- **Lucas Carabolad Bob** (RM550519)  
+- **Thiago Ulrych** (RM97951)  
+
+---
+
 ## Pré-requisitos
 
-- .NET SDK (8.0 ou superior)
-- Banco de Dados Oracle ou acesso a uma instância configurada
-- Visual Studio, Visual Studio Code ou qualquer outra IDE compatível
-- Dependências adicionais, como `Oracle.ManagedDataAccess`, `Dapper`, `xUnit` e `Moq` para testes
+- **.NET SDK (8.0 ou superior)**  
+- **Banco de Dados Oracle** ou acesso a uma instância configurada  
+- IDE compatível, como **Visual Studio** ou **Visual Studio Code**  
+- Dependências adicionais:
+  - `Oracle.ManagedDataAccess`
+  - `Dapper`
+  - `xUnit`
+  - `Moq` (para testes)
+
+---
 
 ## Configuração do Projeto
 
 ### 1. Configurando a String de Conexão
 
-A conexão com o banco de dados Oracle deve ser configurada no arquivo `appsettings.json`. Um exemplo de configuração:
+Configure a conexão com o banco de dados Oracle no arquivo `appsettings.json`. Exemplo:
 
 ```json
 {
@@ -32,7 +50,9 @@ A conexão com o banco de dados Oracle deve ser configurada no arquivo `appsetti
 }
 ```
 
-> **Importante**: Substitua os valores de `User Id`, `Password`, `Host`, `Port` e `SID` conforme necessário para sua configuração.
+> **Nota**: Substitua os valores de `User Id`, `Password`, `Host`, `Port` e `SID` conforme a sua configuração.
+
+---
 
 ### 2. Configuração Inicial
 
@@ -42,13 +62,13 @@ A conexão com o banco de dados Oracle deve ser configurada no arquivo `appsetti
    git clone https://github.com/SeuRepositorio/EnergyMonitoringAPI.git
    ```
 
-2. Navegue para o diretório do projeto:
+2. Acesse o diretório do projeto:
 
    ```bash
    cd EnergyMonitoringAPI
    ```
 
-3. Restaure as dependências do projeto:
+3. Restaure as dependências:
 
    ```bash
    dotnet restore
@@ -60,47 +80,60 @@ A conexão com o banco de dados Oracle deve ser configurada no arquivo `appsetti
    dotnet build
    ```
 
+---
+
 ## Estrutura do Projeto
 
-- **`Controllers/`**: Contém os controladores da API, incluindo `EnergyController`, que gerencia as operações de CRUD.
-- **`Models/`**: Contém as classes de modelos de dados, como `EnergyProduction` e `User`.
-- **`Repositories/`**: Contém a lógica de interação com o banco de dados.
-- **`Services/`**: Contém serviços que encapsulam a lógica de negócios.
-- **`Data/`**: Contém a configuração para conexão com o banco de dados (`OracleDbContext`).
+- **`Controllers/`**: Contém os controladores da API (ex.: `EnergyController` para operações CRUD).
+- **`Models/`**: Contém os modelos de dados, como `EnergyProduction` e `User`.
+- **`Repositories/`**: Lógica de interação com o banco de dados.
+- **`Services/`**: Serviços encapsulando a lógica de negócios.
+- **`Data/`**: Configuração para conexão com o banco (`OracleDbContext`).
+
+---
 
 ## Executando o Projeto
 
-### Execução em HTTP/HTTPS
+### Modo Desenvolvimento
 
-Para executar o projeto em modo de desenvolvimento, use:
+Execute o comando:
 
 ```bash
 dotnet run
 ```
 
-A API estará disponível em `http://localhost:{porta}` ou `https://localhost:{porta}` conforme configurado no `launchSettings.json`.
+A API estará disponível em:
 
-### Configuração de HTTPS
+- **HTTP**: `http://localhost:{porta}`
+- **HTTPS**: `https://localhost:{porta}`
 
-Para confiar no certificado HTTPS em modo de desenvolvimento:
+> **Porta** configurada em `launchSettings.json`.
+
+### Certificado HTTPS
+
+Para confiar no certificado em ambiente de desenvolvimento:
 
 ```bash
 dotnet dev-certs https --trust
 ```
 
+---
+
 ## Documentação da API
 
-A documentação da API está disponível via Swagger. Quando a aplicação estiver em execução, você pode acessar a documentação em:
+A documentação da API é gerada pelo Swagger. Com a aplicação em execução, acesse:
 
 ```
 http://localhost:{porta}/swagger
 ```
 
+---
+
 ## Executando Testes
 
-O projeto inclui testes unitários utilizando `xUnit` e `Moq`. Para executar os testes:
+Os testes unitários são implementados com `xUnit` e `Moq`. Para executá-los:
 
-1. Navegue para o diretório de testes (caso tenha):
+1. Navegue até o diretório de testes:
 
    ```bash
    cd EnergyMonitoringAPI.Tests
@@ -112,10 +145,13 @@ O projeto inclui testes unitários utilizando `xUnit` e `Moq`. Para executar os 
    dotnet test
    ```
 
+---
+
 ## Tecnologias Utilizadas
 
 - **.NET 8.0**: Framework para desenvolvimento da API.
-- **Oracle Managed Data Access**: Biblioteca para interação com o banco de dados Oracle.
-- **Dapper**: Micro ORM para consultas simplificadas ao banco de dados.
-- **xUnit**: Framework de testes unitários.
-- **Moq**: Biblioteca para criação de mocks em testes.
+- **Oracle Managed Data Access**: Biblioteca de conexão com Oracle.
+- **Dapper**: Micro ORM para consultas simplificadas.
+- **xUnit**: Framework para testes unitários.
+- **Moq**: Biblioteca para mocks em testes.
+
